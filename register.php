@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	     $response['value'] = '200';
 	     $response['status'] = 'success';
 	     $response['msg'] = 'Berhasil mendaftarkan akun';
-	     $response['content'] = [];
+	     $response['content'] = "kosong";
         echo json_encode($response);
     }else{
         $response['value'] = '0';
