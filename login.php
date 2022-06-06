@@ -11,9 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if(mysqli_num_rows($hasil)===0){
         $response['value'] = '200';
-	     $response['status'] = 'success';
+	     $response['status'] = 'failed';
 	     $response['msg'] = 'Username atau password anda salah';
-	     $response['content'] = "kosong";
+	     $response['content'] = (object)[];
 
         echo json_encode($response);
 
