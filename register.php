@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
     move_uploaded_file($file_tmp, 'img/'.$image_name);
 
-    $query_insert= "INSERT INTO `user` SET `username`='$username',`password`='$password', `name`='$name', profile_picture='$image_name'";
+    $query_insert= "INSERT INTO `user` SET `username`='$username',`password`='$password', `name`='$name', profile_picture='img/$image_name'";
    $hasil      = mysqli_query($con, $query_insert);
    if(!$hasil){
        printf("error : %s\n", mysqli_error($con));
