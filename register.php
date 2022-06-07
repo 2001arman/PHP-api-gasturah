@@ -8,14 +8,14 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $password   = $_POST['password'];
     $name       = $_POST['name'];
 
-    $nama = $_FILES['profile_picture']['name'];
-    $x = explode('.', $nama);
-    $ekstensi = strtolower(end($x));
-    $file_tmp = $_FILES['profile_picture']['tmp_name'];
+    // $nama = $_FILES['profile_picture']['name'];
+    // $x = explode('.', $nama);
+    // $ekstensi = strtolower(end($x));
+    // $file_tmp = $_FILES['profile_picture']['tmp_name'];
 
-    $image_name = $username . ".$ekstensi";
+    // $image_name = $username . ".$ekstensi";
     
-    $query_insert= "INSERT INTO `user` SET `username`='$username',`password`='$password', `name`='$name', profile_picture='img/$image_name'";
+    $query_insert= "INSERT INTO `user` SET `username`='$username',`password`='$password', `name`='$name', profile_picture='img/empty-image.png'";
     $hasil      = mysqli_query($con, $query_insert);
     
    if(!$hasil){
@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
        }
    }
     if(isset($hasil)){
-        move_uploaded_file($file_tmp, 'img/'.$image_name);
+        // move_uploaded_file($file_tmp, 'img/'.$image_name);
 	     $response['value'] = '200';
 	     $response['status'] = 'success';
 	     $response['msg'] = 'Berhasil mendaftarkan akun';
