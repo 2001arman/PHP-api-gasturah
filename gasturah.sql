@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 07, 2022 at 08:45 AM
+-- Generation Time: Jun 07, 2022 at 08:48 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -42,7 +42,7 @@ CREATE TABLE `tempat_bersejarah` (
 --
 
 INSERT INTO `tempat_bersejarah` (`id`, `nama`, `foto`, `detail`, `sumber`, `latitude`, `longitude`) VALUES
-(4, 'lawang sewu', 'img/lawang sewu.png', 'Lawang Sewu adalah gedung bersejarah milik PT Kereta Api Indonesia (Persero) yang awalnya digunakan sebagai Kantor Pusat perusahaan kereta api swasta Nederlandsch-Indische Spoorweg Maatschappij (NISM). Gedung Lawang Sewu dibangun secara bertahap di atas lahan seluas 18.232 m2. Bangunan utama dimulai pada 27 Februari 1904 dan selesai pada Juli 1907. Sedangkan bangunan tambahan dibangun sekitar tahun 1916 dan selesai tahun 1918.\n \n Bangunannya dirancang oleh Prof. Jakob F. Klinkhamer dan B.J. Ouendag, arsitek dari Amsterdam dengan ciri dominan berupa elemen lengkung dan sederhana. Bangunan di desain menyerupai huruf L serta memiliki jumlah jendela dan pintu yang banyak sebagai sistem sirkulasi udara. Karena jumlah pintunya yang banyak maka masyarakat menamainya dengan Lawang Sewu yang berarti seribu pintu.', 'https://heritage.kai.id/page/lawang-s', '-6.9839865', '110.4097825');
+(5, 'lawang sewu', 'tempat_bersejarah/lawang sewu.png', 'Lawang Sewu adalah gedung bersejarah milik PT Kereta Api Indonesia (Persero) yang awalnya digunakan sebagai Kantor Pusat perusahaan kereta api swasta Nederlandsch-Indische Spoorweg Maatschappij (NISM). Gedung Lawang Sewu dibangun secara bertahap di atas lahan seluas 18.232 m2. Bangunan utama dimulai pada 27 Februari 1904 dan selesai pada Juli 1907. Sedangkan bangunan tambahan dibangun sekitar tahun 1916 dan selesai tahun 1918.\n \n Bangunannya dirancang oleh Prof. Jakob F. Klinkhamer dan B.J. Ouendag, arsitek dari Amsterdam dengan ciri dominan berupa elemen lengkung dan sederhana. Bangunan di desain menyerupai huruf L serta memiliki jumlah jendela dan pintu yang banyak sebagai sistem sirkulasi udara. Karena jumlah pintunya yang banyak maka masyarakat menamainya dengan Lawang Sewu yang berarti seribu pintu.', 'https://heritage.kai.id/page/lawang-s', '-6.9839865', '110.4097825');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `tempat_bersejarah`
 --
 ALTER TABLE `tempat_bersejarah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`

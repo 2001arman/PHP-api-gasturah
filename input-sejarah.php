@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
     $image_name = $nama . ".$ekstensi";
     
-    $query_insert= "INSERT INTO `tempat_bersejarah` SET `nama`='$nama',`detail`='$detail',  foto='img/$image_name', `sumber`='$sumber', `latitude`='$latitude',`longitude`='$longitude' ";
+    $query_insert= "INSERT INTO `tempat_bersejarah` SET `nama`='$nama',`detail`='$detail',  foto='tempat_bersejarah/$image_name', `sumber`='$sumber', `latitude`='$latitude',`longitude`='$longitude' ";
     $hasil      = mysqli_query($con, $query_insert);
     
    if(!$hasil){
