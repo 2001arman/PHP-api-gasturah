@@ -36,10 +36,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
        }
    }
     if(isset($hasil)){
-        move_uploaded_file($file_tmp, 'posting/'.$image_name);
+        // move_uploaded_file($hasilImage, 'posting/'.$image_name);
+        file_put_contents('posting/'.$image_name, $hasilImage);
 	     $response['value'] = '200';
 	     $response['status'] = 'success';
-	     $response['msg'] = 'Berhasil mendaftarkan akun';
+	     $response['msg'] = 'Berhasil membagikan foto';
 	     $response['content'] = (object)[];
         echo json_encode($response);
     }else{
