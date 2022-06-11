@@ -7,9 +7,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $username   = $_POST['username'];
 
     date_default_timezone_set('Asia/Makassar');
-    $date = date('m/d/Y', time());
+    $date = date('Y-m-d', time());
 
-    $foto = $_POST['profile_picture'];
+    $foto = $_POST['foto'];
     $hasilImage = base64_decode($foto);
 
     // $nama = $_FILES['foto']['name'];
