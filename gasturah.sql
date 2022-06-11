@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 07, 2022 at 08:48 AM
+-- Generation Time: Jun 11, 2022 at 12:14 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -24,6 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `postingan`
+--
+
+CREATE TABLE `postingan` (
+  `id` int(11) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `waktu` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tempat_bersejarah`
 --
 
@@ -36,13 +49,6 @@ CREATE TABLE `tempat_bersejarah` (
   `latitude` varchar(255) NOT NULL,
   `longitude` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tempat_bersejarah`
---
-
-INSERT INTO `tempat_bersejarah` (`id`, `nama`, `foto`, `detail`, `sumber`, `latitude`, `longitude`) VALUES
-(5, 'lawang sewu', 'tempat_bersejarah/lawang sewu.png', 'Lawang Sewu adalah gedung bersejarah milik PT Kereta Api Indonesia (Persero) yang awalnya digunakan sebagai Kantor Pusat perusahaan kereta api swasta Nederlandsch-Indische Spoorweg Maatschappij (NISM). Gedung Lawang Sewu dibangun secara bertahap di atas lahan seluas 18.232 m2. Bangunan utama dimulai pada 27 Februari 1904 dan selesai pada Juli 1907. Sedangkan bangunan tambahan dibangun sekitar tahun 1916 dan selesai tahun 1918.\n \n Bangunannya dirancang oleh Prof. Jakob F. Klinkhamer dan B.J. Ouendag, arsitek dari Amsterdam dengan ciri dominan berupa elemen lengkung dan sederhana. Bangunan di desain menyerupai huruf L serta memiliki jumlah jendela dan pintu yang banyak sebagai sistem sirkulasi udara. Karena jumlah pintunya yang banyak maka masyarakat menamainya dengan Lawang Sewu yang berarti seribu pintu.', 'https://heritage.kai.id/page/lawang-s', '-6.9839865', '110.4097825');
 
 -- --------------------------------------------------------
 
@@ -64,6 +70,13 @@ CREATE TABLE `user` (
 --
 
 --
+-- Indexes for table `postingan`
+--
+ALTER TABLE `postingan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user` (`user`);
+
+--
 -- Indexes for table `tempat_bersejarah`
 --
 ALTER TABLE `tempat_bersejarah`
@@ -81,16 +94,32 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `postingan`
+--
+ALTER TABLE `postingan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tempat_bersejarah`
 --
 ALTER TABLE `tempat_bersejarah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `postingan`
+--
+ALTER TABLE `postingan`
+  ADD CONSTRAINT `postingan_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
