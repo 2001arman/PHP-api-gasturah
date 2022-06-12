@@ -29,7 +29,7 @@
                 ];
             }
             $reverse = array_reverse($data);
-            $response['content'][] = $reverse;
+            $response['content'] = $reverse;
             echo json_encode($response);
         }
 
