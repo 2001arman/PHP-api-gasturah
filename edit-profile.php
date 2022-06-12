@@ -13,17 +13,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $getUser      = "SELECT * FROM `user` WHERE `username` ='$username_awal'";
     $hasilUser      = mysqli_query($con, $getUser);
-    while ($fetchdata = mysqli_fetch_array($hasil)) {
+    $passwordUser;
+    $profileUser;
+    while ($fetchdata = mysqli_fetch_array($hasilUser)) {
         $passwordUser = $fetchdata['password'];
         $profileUser = $fetchdata['profile_picture'];
     }
 
-    $password = "" ? $passwordUser : $password;
-    $foto = "" ? $profileUser : $password;
-
+    $password == "" ? $password = $passwordUser : $password;
     $image_name = $username_baru . ".png";
 
-    $query      = "UPDATE user SET `username`='$username_baru', `password`='$password', `name`='$name', profile_picture='img/$image_name' WHERE  `username` = '$username_awal'";
+    $foto == "" ? $image_name = $profileUser : $image_name = "img/".$username_baru . ".png";;
+
+    $query      = "UPDATE user SET `username`='$username_baru', `password`='$password', `name`='$name', profile_picture='$image_name' WHERE  `username` = '$username_awal'";
     $hasil      = mysqli_query($con, $query);
 
     if(!$hasil){
@@ -42,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
      if(isset($hasil)){
         //  move_uploaded_file($file_tmp, 'img/'.$image_name);
         if($foto != ""){
-            file_put_contents('img/'.$image_name, $hasilImage);
+            file_put_contents($image_name, $hasilImage);
         }
          $query      = "SELECT * FROM `user` WHERE `username` ='$username_baru'";
          $hasil      = mysqli_query($con, $query);
