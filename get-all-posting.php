@@ -20,13 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $response['status'] = 'success';
         $response['msg'] = 'Berhasil mengambil data postingan';
         while ($fetchdata = mysqli_fetch_array($hasil)) {
-            $response['content'][] = [
+            $data[] = [
                 'user' => $fetchdata['name'],
                 'foto' => $fetchdata['foto'],
                 'profile_picture' => $fetchdata['profile_picture'],
                 'waktu' => $fetchdata['waktu'],
             ];
         }
+        $reverse = array_reverse($data);
+        $response['content'][] = $reverse;
         echo json_encode($response);
     }
 
