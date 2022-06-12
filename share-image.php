@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $username   = $_POST['username'];
 
     date_default_timezone_set('Asia/Makassar');
-    $date = date('Y-m-d', time());
+    $date = date('Y-m-d H:i:s', time());
 
     $foto = $_POST['foto'];
     $hasilImage = base64_decode($foto);
