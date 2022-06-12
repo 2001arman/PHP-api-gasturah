@@ -5,10 +5,13 @@ require "connect.php";
 if($_SERVER['REQUEST_METHOD']=="POST"){
     $response   = array();
 
-    $nama_file = $_FILES['foto']['name'];
-    $x = explode('.', $nama_file);
-    $ekstensi = strtolower(end($x));
-    $file_tmp = $_FILES['foto']['tmp_name'];
+    $foto = $_POST['foto'];
+    $hasilImage = base64_decode($foto);
+
+    // $nama_file = $_FILES['foto']['name'];
+    // $x = explode('.', $nama_file);
+    // $ekstensi = strtolower(end($x));
+    // $file_tmp = $_FILES['foto']['tmp_name'];
 
     
     $query      = "SELECT * FROM `tempat_bersejarah` WHERE `nama` ='lawang sewu'";
