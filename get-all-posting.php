@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $response['msg'] = 'Berhasil mengambil data postingan';
         while ($fetchdata = mysqli_fetch_array($hasil)) {
             $response['content'][] = [
-                'user' => $fetchdata['user'],
+                'user' => $fetchdata['name'],
                 'foto' => $fetchdata['foto'],
                 'profile_picture' => $fetchdata['profile_picture'],
                 'waktu' => $fetchdata['waktu'],
