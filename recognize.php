@@ -6,7 +6,6 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $response   = array();
 
     $foto = $_POST['foto'];
-    $hasilImage = base64_decode($foto);
 
     // $nama_file = $_FILES['foto']['name'];
     // $x = explode('.', $nama_file);
@@ -14,7 +13,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     // $file_tmp = $_FILES['foto']['tmp_name'];
 
     
-    $query      = "SELECT * FROM `tempat_bersejarah` WHERE `nama` ='lawang sewu'";
+    $query      = "SELECT * FROM `tempat_bersejarah` WHERE `nama` ='$foto'";
     $hasil      = mysqli_query($con, $query);
     
    if(!$hasil){
