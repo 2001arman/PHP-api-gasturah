@@ -11,11 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $foto = $_POST['profile_picture'];
     $hasilImage = base64_decode($foto);
 
+    $getUser      = "SELECT * FROM `user` WHERE `username` ='$username_awal'";
+    $hasilUser      = mysqli_query($con, $getUser);
+    while ($fetchdata = mysqli_fetch_array($hasil)) {
+        $passwordUser = $fetchdata['password'];
+        $profileUser = $fetchdata['profile_picture'];
+    }
 
-    // $nama = $_FILES['profile_picture']['name'];
-    // $x = explode('.', $nama);
-    // $ekstensi = strtolower(end($x));
-    // $file_tmp = $_FILES['profile_picture']['tmp_name'];
+    $password = "" ? $passwordUser : $password;
+    $foto = "" ? $profileUser : $password;
 
     $image_name = $username_baru . ".png";
 
@@ -37,7 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
      if(isset($hasil)){
         //  move_uploaded_file($file_tmp, 'img/'.$image_name);
-        file_put_contents('img/'.$image_name, $hasilImage);
+        if($foto != ""){
+            file_put_contents('img/'.$image_name, $hasilImage);
+        }
          $query      = "SELECT * FROM `user` WHERE `username` ='$username_baru'";
          $hasil      = mysqli_query($con, $query);
          while ($fetchdata = mysqli_fetch_array($hasil)) {
